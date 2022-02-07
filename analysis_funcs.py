@@ -66,7 +66,7 @@ def output_function(y_true, y_pred_proba):
         cum_count_list.append(int(round(len(y_array[0]) * elem)))
         cum_tp_list.append(tp_at_depth_internal(y_array, elem))
         cum_fp_list.append(fp_at_depth_internal(y_array, elem))
-        cum_pred_proba_list(pred_proba_at_depth(y_array, elem))
+        cum_pred_proba_list.append(pred_proba_at_depth(y_array, elem))
     output_array = np.stack((depth_array, np.asarray(cum_pred_proba_list), np.asarray(cum_recall_list),
                              np.asarray(cum_precision_list), np.asarray(cum_count_list),
                              np.asarray(cum_tp_list), np.asarray(cum_fp_list)), axis = 1)
